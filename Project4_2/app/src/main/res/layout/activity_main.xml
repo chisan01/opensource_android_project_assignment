@@ -14,8 +14,8 @@
         android:text="선택을 시작하겠습니까?"
         android:textSize="20dp" />
 
-    <CheckBox
-        android:id="@+id/ChkAgree"
+    <Switch
+        android:id="@+id/StartSwitch"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
         android:text="시작함" />
@@ -29,43 +29,53 @@
         android:id="@+id/Text2"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="좋아하는 애완동물은?"
-        android:visibility="invisible"
-        android:textSize="20dp" />
+        android:text="좋아하는 안드로이드 버전은?"
+        android:textSize="20dp"
+        android:visibility="invisible" />
 
     <RadioGroup
         android:id="@+id/Rgroup1"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:visibility="invisible" >
+        android:visibility="invisible">
+
         <RadioButton
-            android:id="@+id/RdoDog"
+            android:id="@+id/RdoAndroid10"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="강아지" />
+            android:text="Q(10.0)" />
+
         <RadioButton
-            android:id="@+id/RdoCat"
+            android:id="@+id/RdoAndroid11"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="고양이" />
+            android:text="R(11.0)" />
+
         <RadioButton
-            android:id="@+id/RdoRabbit"
+            android:id="@+id/RdoAndroid12"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:text="토끼" />
+            android:text="S(12.0)" />
     </RadioGroup>
 
-    <Button
-        android:id="@+id/BtnOK"
+    <ImageView
+        android:id="@+id/ImgAndroid"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
-        android:text="선택 완료"
         android:visibility="invisible" />
 
-    <ImageView
-        android:id="@+id/ImgPet"
+    <Button
+        android:id="@+id/ExitBtn"
         android:layout_width="wrap_content"
         android:layout_height="wrap_content"
+        android:text="종료"
+        android:visibility="invisible" />
+
+    <Button
+        android:id="@+id/ResetBtn"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:text="처음으로"
         android:visibility="invisible" />
 
 </LinearLayout>

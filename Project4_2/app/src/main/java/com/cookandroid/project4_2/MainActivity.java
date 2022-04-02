@@ -5,75 +5,91 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
-import android.widget.CheckBox;
 import android.widget.CompoundButton;
 import android.widget.ImageView;
 import android.widget.RadioButton;
 import android.widget.RadioGroup;
+import android.widget.Switch;
 import android.widget.TextView;
-import android.widget.Toast;
 
 public class MainActivity extends AppCompatActivity {
 
     TextView text1, text2;
-    CheckBox chkAgree;
+    Switch startSwitch;
     RadioGroup rGroup1;
-    RadioButton rdoDog, rdoCat, rdoRabbit;
-    Button btnOK;
-    ImageView imgPet;
+    RadioButton rdoAndroid10, rdoAndroid11, rdoAndroid12;
+    ImageView imgAndroid;
+    Button exitBtn, resetBtn;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
-        setTitle("애완동물 사진 보기");
+        setTitle("안드로이드 사진 보기");
 
         text1 = findViewById(R.id.Text1);
-        chkAgree = findViewById(R.id.ChkAgree);
+        startSwitch = findViewById(R.id.StartSwitch);
 
         text2 = findViewById(R.id.Text2);
         rGroup1 = findViewById(R.id.Rgroup1);
-        rdoDog = findViewById(R.id.RdoDog);
-        rdoCat = findViewById(R.id.RdoCat);
-        rdoRabbit = findViewById(R.id.RdoRabbit);
+        rdoAndroid10 = findViewById(R.id.RdoAndroid10);
+        rdoAndroid11 = findViewById(R.id.RdoAndroid11);
+        rdoAndroid12 = findViewById(R.id.RdoAndroid12);
 
-        btnOK = findViewById(R.id.BtnOK);
-        imgPet = findViewById(R.id.ImgPet);
+        imgAndroid = findViewById(R.id.ImgAndroid);
 
-        chkAgree.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
+        exitBtn = findViewById(R.id.ExitBtn);
+        resetBtn = findViewById(R.id.ResetBtn);
+
+        startSwitch.setOnCheckedChangeListener(new CompoundButton.OnCheckedChangeListener() {
             @Override
             public void onCheckedChanged(CompoundButton compoundButton, boolean b) {
-                if(chkAgree.isChecked()) {
+                if (startSwitch.isChecked()) {
                     text2.setVisibility(View.VISIBLE);
                     rGroup1.setVisibility(View.VISIBLE);
-                    btnOK.setVisibility(View.VISIBLE);
-                    imgPet.setVisibility(View.VISIBLE);
-                }
-                else {
+                    imgAndroid.setVisibility(View.VISIBLE);
+                    exitBtn.setVisibility(View.VISIBLE);
+                    resetBtn.setVisibility(View.VISIBLE);
+                } else {
                     text2.setVisibility(View.INVISIBLE);
                     rGroup1.setVisibility(View.INVISIBLE);
-                    btnOK.setVisibility(View.INVISIBLE);
-                    imgPet.setVisibility(View.INVISIBLE);
+                    imgAndroid.setVisibility(View.INVISIBLE);
+                    exitBtn.setVisibility(View.INVISIBLE);
+                    resetBtn.setVisibility(View.INVISIBLE);
                 }
             }
         });
 
-        btnOK.setOnClickListener(new View.OnClickListener() {
+        rGroup1.setOnCheckedChangeListener(new RadioGroup.OnCheckedChangeListener() {
+            @Override
+            public void onCheckedChanged(RadioGroup radioGroup, int i) {
+                switch (rGroup1.getCheckedRadioButtonId()) {
+                    case R.id.RdoAndroid10:
+                        imgAndroid.setImageResource(R.drawable.android10);
+                        break;
+                    case R.id.RdoAndroid11:
+                        imgAndroid.setImageResource(R.drawable.android11);
+                        break;
+                    case R.id.RdoAndroid12:
+                        imgAndroid.setImageResource(R.drawable.android12);
+                        break;
+                }
+            }
+        });
+
+        exitBtn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                switch (rGroup1.getCheckedRadioButtonId()) {
-                    case R.id.RdoDog:
-                        imgPet.setImageResource(R.drawable.dog);
-                        break;
-                    case R.id.RdoCat:
-                        imgPet.setImageResource(R.drawable.cat);
-                        break;
-                    case R.id.RdoRabbit:
-                        imgPet.setImageResource(R.drawable.rabbit);
-                        break;
-                    default:
-                        Toast.makeText(getApplicationContext(), "동물 먼저 선택하세요", Toast.LENGTH_SHORT).show();
-                }
+                finish();
+            }
+        });
+
+        resetBtn.setOnClickListener(new View.OnClickListener() {
+            @Override
+            public void onClick(View view) {
+                rGroup1.clearCheck();
+                startSwitch.setChecked(false);
+                imgAndroid.setImageResource(0);
             }
         });
     }
