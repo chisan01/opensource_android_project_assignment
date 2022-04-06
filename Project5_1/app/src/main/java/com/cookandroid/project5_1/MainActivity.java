@@ -6,6 +6,7 @@ import android.graphics.Color;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.Button;
+import android.widget.EditText;
 import android.widget.LinearLayout;
 import android.widget.TextView;
 import android.widget.Toast;
@@ -27,20 +28,25 @@ public class MainActivity extends AppCompatActivity {
         baseLayout.setBackgroundColor(Color.rgb(0, 255, 0));
         setContentView(baseLayout, params);
 
-        TextView textView = new TextView(this);
-        textView.setText("2020039053 안치산");
-        baseLayout.addView(textView);
+        TextView name = new TextView(this);
+        name.setText("2020039053 안치산");
+        baseLayout.addView(name);
+
+        EditText editText = new EditText(this);
+        baseLayout.addView(editText);
 
         Button btn = new Button(this);
         btn.setText("버튼입니다.");
         btn.setBackgroundColor(Color.MAGENTA);
         baseLayout.addView(btn);
 
+        TextView textView = new TextView(this);
+        baseLayout.addView(textView);
+
         btn.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View view) {
-                Toast.makeText(getApplicationContext(),
-                        "코드로 생성한 버튼입니다.", Toast.LENGTH_SHORT).show();
+                textView.setText(editText.getText().toString());
             }
         });
     }
