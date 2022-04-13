@@ -12,26 +12,14 @@
         android:layout_height="wrap_content"
         android:text="2020039053 안치산" />
 
-    <LinearLayout
+    <Chronometer
+        android:id="@+id/chronometer1"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:orientation="vertical">
-
-        <Chronometer
-            android:id="@+id/chronometer1"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:format="예약에 걸린 시간 %s"
-            android:gravity="center"
-            android:textSize="20dp" />
-
-        <Button
-            android:id="@+id/btnStart"
-            android:layout_width="match_parent"
-            android:layout_height="wrap_content"
-            android:text="예약 시작" />
-
-    </LinearLayout>
+        android:background="#CCCCCC"
+        android:format="예약에 걸린 시간 %s"
+        android:gravity="center"
+        android:textSize="20dp" />
 
     <RadioGroup
         android:layout_width="wrap_content"
@@ -59,17 +47,16 @@
             android:layout_width="match_parent"
             android:layout_height="wrap_content">
 
-            <CalendarView
-                android:id="@+id/calendarView1"
+            <DatePicker
+                android:id="@+id/datePicker1"
                 android:layout_width="match_parent"
-                android:layout_height="wrap_content"
-                android:showWeekNumber="false" />
+                android:layout_height="wrap_content"/>
 
             <TimePicker
                 android:id="@+id/timePicker1"
                 android:layout_width="match_parent"
                 android:layout_height="wrap_content"
-                android:timePickerMode="spinner"/>
+                android:timePickerMode="spinner" />
         </FrameLayout>
 
     </LinearLayout>
@@ -77,29 +64,29 @@
     <LinearLayout
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="#CCCCCC" >
+        android:background="#CCCCCC"
+        android:gravity="center">
 
-        <Button
+        <LinearLayout
+            android:id="@+id/endReservation"
             android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/btnEnd"
-            android:text="예약완료" />
+            android:layout_height="wrap_content" >
+            <TextView
+                android:id="@+id/tvYear"
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="0000" />
+
+            <TextView
+                android:layout_width="wrap_content"
+                android:layout_height="wrap_content"
+                android:text="년" />
+        </LinearLayout>
 
         <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:id="@+id/tvYear"
-            android:text="0000" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
-            android:text="년" />
-
-        <TextView
-            android:layout_width="wrap_content"
-            android:layout_height="wrap_content"
             android:id="@+id/tvMonth"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
             android:text="00" />
 
         <TextView
@@ -108,9 +95,9 @@
             android:text="월" />
 
         <TextView
+            android:id="@+id/tvDay"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvDay"
             android:text="00" />
 
         <TextView
@@ -119,9 +106,9 @@
             android:text="일" />
 
         <TextView
+            android:id="@+id/tvHour"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvHour"
             android:text="00" />
 
         <TextView
@@ -130,9 +117,9 @@
             android:text="시" />
 
         <TextView
+            android:id="@+id/tvMinute"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:id="@+id/tvMinute"
             android:text="00" />
 
         <TextView
